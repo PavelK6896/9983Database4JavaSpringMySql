@@ -6,16 +6,20 @@ server:
 spring:
   application:
     name: db4
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
 
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db4
+#    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/mysql
     username: root
     password: 0
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     show-sql: true
     generate-ddl: false
     properties:
@@ -30,3 +34,5 @@ spring:
     serialization:
       indent_output: true
 
+
+consoleExecute: true

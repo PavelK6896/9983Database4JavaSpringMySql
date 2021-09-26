@@ -13,8 +13,9 @@ public class TopicService {
     private final TopicRepo topicRepo;
 
     @Transactional
-    public void showBooks() {
+    public Boolean showBooks() {
         topicRepo.findAll().forEach(f -> System.out.println(f.getBooks()));
+        return true;
     }
 
 }
